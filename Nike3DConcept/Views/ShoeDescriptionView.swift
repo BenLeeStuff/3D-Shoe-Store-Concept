@@ -145,7 +145,6 @@ class ShoeDescriptionView: UIView {
             let currentSum = widthSum
             let buttonWidth = getDesiredButtonWidthFromString(text: buttonText)
 
-
             if (currentSum + buttonWidth) > widthLimit {
                 // checks if adding the current button will make width too big
                 // need to make a stack view with the current buttons in button row and add that stackview to the buttonStackView

@@ -76,7 +76,7 @@ class ShoeCollectionViewCell: UICollectionViewCell {
         
         addSubview(definitionLabel)
         definitionLabel.anchor(top: nameLabel.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor, paddingTop: 6, paddingLeft: 12, paddingBottom: 0, paddingRight: 12, width: 0, height: 0)
-        definitionLabel.alpha = 0.8
+        //definitionLabel.alpha = 1
         
     }
     

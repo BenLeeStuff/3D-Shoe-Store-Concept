@@ -14,9 +14,7 @@ class ShoeDetailsViewController: UIViewController {
     let backButton: UIButton = {
         let b = UIButton()
         b.setImage(UIImage(named: "back")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        //b.setImage(UIImage(systemName: "arrow.left"), for: .normal)
         b.contentMode = .scaleAspectFill
-        //b.tintColor = UIColor.appBlack()
         b.backgroundColor = .white
         b.layer.cornerRadius = 15
         b.clipsToBounds = true
@@ -48,15 +46,13 @@ class ShoeDetailsViewController: UIViewController {
         return b
     }()
     
-    //let shoeSCNView = ShoeSCNView(frame: .zero)
     
     override func viewWillAppear(_ animated: Bool) {
-//
         self.view.alpha = 0
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        UIView.animate(withDuration: 0.5, delay: 0) {
+        UIView.animate(withDuration: 0.8, delay: 0) {
             self.view.backgroundColor = UIColor.rgb(red: 245, green: 247, blue: 251)
             self.view.alpha = 1
         }
@@ -64,8 +60,6 @@ class ShoeDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
         setupBackAndHeartButton()
         setup3DView()
         setupDescriptionView()

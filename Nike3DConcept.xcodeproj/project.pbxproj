@@ -34,6 +34,7 @@
 		B57DF71829E4365800FCCE79 /* Shoe3DView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57DF71729E4365800FCCE79 /* Shoe3DView.swift */; };
 		B57DF71C29E43BFE00FCCE79 /* shoe.usdz in Resources */ = {isa = PBXBuildFile; fileRef = B57DF71B29E43BFE00FCCE79 /* shoe.usdz */; };
 		B57DF71E29E4670200FCCE79 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57DF71D29E4670200FCCE79 /* GradientView.swift */; };
+		B5C1FD7629E679B200BA11D4 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C1FD7529E679B200BA11D4 /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		B57DF71729E4365800FCCE79 /* Shoe3DView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shoe3DView.swift; sourceTree = "<group>"; };
 		B57DF71B29E43BFE00FCCE79 /* shoe.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = shoe.usdz; path = ../../../Downloads/shoe.usdz; sourceTree = "<group>"; };
 		B57DF71D29E4670200FCCE79 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		B5C1FD7529E679B200BA11D4 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			children = (
 				B57DF71529E433EB00FCCE79 /* HomeViewController.swift */,
 				B57DF70D29E4230B00FCCE79 /* ShoeDetailsViewController.swift */,
+				B5C1FD7529E679B200BA11D4 /* TestViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				B57DF71629E433EB00FCCE79 /* HomeViewController.swift in Sources */,
 				B57DF6EA29E27C0300FCCE79 /* Extensions.swift in Sources */,
 				B57DF6D129E1816400FCCE79 /* AppDelegate.swift in Sources */,
+				B5C1FD7629E679B200BA11D4 /* TestViewController.swift in Sources */,
 				B57DF71029E4328100FCCE79 /* ShoeDescriptionView.swift in Sources */,
 				B57DF70A29E2B2EC00FCCE79 /* BrandCollectionViewCell.swift in Sources */,
 				B57DF6D329E1816400FCCE79 /* SceneDelegate.swift in Sources */,

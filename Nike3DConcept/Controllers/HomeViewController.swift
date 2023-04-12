@@ -15,12 +15,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     let brandsCellID = "brandsCellID"
     let shoeCellID = "shoeCellID"
     
-    let shoes: [UIImage] = [UIImage(named: "zoomPegasus")?.withRenderingMode(.alwaysOriginal) ?? UIImage(), UIImage(named: "adidasDragon")?.withRenderingMode(.alwaysOriginal) ?? UIImage()]
-    
+    let shoesImages: [UIImage] = [UIImage(named: "zoomPegasus")?.withRenderingMode(.alwaysOriginal) ?? UIImage(), UIImage(named: "adidasDragon")?.withRenderingMode(.alwaysOriginal) ?? UIImage()]
     
     let topView = TopView()
     let holderView = UIView()
     let shoeDetailsViewController = ShoeDetailsViewController()
+    let testViewController = TestViewController()
     
     lazy var homeColletionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -32,7 +32,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         cv.dataSource = self
         cv.delegate = self
         cv.isPagingEnabled = true
-        // cv.layer.shadowRadius = 40
         cv.backgroundColor = .clear
         cv.contentInsetAdjustmentBehavior = .never
 
@@ -53,7 +52,6 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         view.backgroundColor = UIColor.appBackgroundGray()
         registerCells()
         setupHomeCollectionView()
-        //setupHomeCollectionView()
 
         // Do any additional setup after loading the view.
     }
@@ -95,13 +93,18 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: shoeCellID, for: indexPath) as! ShoeCollectionViewCell
             
-            cell.shoeImageView.image = shoes[indexPath.item - 1]
+            cell.shoeImageView.image = shoesImages[indexPath.item - 1]
+            
+            if indexPath.item == 2 {
+                cell.nameLabel.text = "Adidas Dragon"
+                cell.definitionLabel.text = "Mens Classic Gray Trainers"
+            }
             return cell
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1 + shoes.count
+        1 + shoesImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -116,24 +119,31 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.shoeDetailsViewController.modalPresentationStyle = .overCurrentContext
-        self.present(self.shoeDetailsViewController, animated: false)
+//        if let cell = collectionView.cellForItem(at: indexPath) as? ShoeCollectionViewCell {
+//            let attributes = collectionView.layoutAttributesForItem(at: indexPath)
+//            let cellRect = attributes?.frame
+//            let cellFrameInSuperview = collectionView.convert(cellRect ?? CGRect.zero, to: collectionView.superview)
+//
+//        }
+        let attributes = collectionView.layoutAttributesForItem(at: indexPath)
+        let cellRect = attributes?.frame
+        let cellFrameInSuperview = collectionView.convert(cellRect ?? CGRect.zero, to: collectionView.superview)
+        let imageFrameInSuperView = CGRect(x: cellFrameInSuperview.minX + 12, y: cellFrameInSuperview.minY + 12, width: cellFrameInSuperview.width - 24, height: cellFrameInSuperview.width - 24)
+        
+        print("Cell Frame: x:\(cellFrameInSuperview.minX) y:\(cellFrameInSuperview.minY), width:\(cellFrameInSuperview.width), height:\(cellFrameInSuperview.height)")
+        
+        print("image Frame: x:\(imageFrameInSuperView.minX) y:\(imageFrameInSuperView.minY), width:\(imageFrameInSuperView.width), height:\(imageFrameInSuperView.height)")
+        
+        
+        self.testViewController.imageStartFrame = imageFrameInSuperView
+        self.testViewController.modalPresentationStyle = .overCurrentContext
+        self.present(self.testViewController, animated: false)
+        
+        //self.shoeDetailsViewController.modalPresentationStyle = .overCurrentContext
+        //self.present(self.shoeDetailsViewController, animated: false)
         // animate and segue
     }
-    
-//    func animateAndSegue() {
-//        self.shoeDetailsViewController.modalPresentationStyle = .overCurrentContext
-//        self.present(self.shoeDetailsViewController, animated: false)
-//        
-//        UIView.animate(withDuration: 0.5, delay: 0) {
-//            self.homeColletionView.frame.origin.y = -50
-//            //
-//            //self.
-//        } completion: { (complete) in
-//            self.homeColletionView.frame.origin.y = 0
-//        }
-//    }
-    
+
     func segueToDetails() {
         self.shoeDetailsViewController.modalPresentationStyle = .fullScreen
         self.present(self.shoeDetailsViewController, animated: false)
