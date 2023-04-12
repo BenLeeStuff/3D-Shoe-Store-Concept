@@ -12,6 +12,7 @@ class ShoeCollectionViewCell: UICollectionViewCell {
     let shoeImageView: UIImageView = {
         let iv = UIImageView(image: UIImage(named: "zoomPegasus")?.withRenderingMode(.alwaysOriginal))
         iv.contentMode = .scaleAspectFit
+        iv.layer.cornerRadius = 15
         return iv
     }()
     

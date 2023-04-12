@@ -52,14 +52,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         view.backgroundColor = UIColor.appBackgroundGray()
         registerCells()
         setupHomeCollectionView()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewSafeAreaInsetsDidChange() {
         super.viewSafeAreaInsetsDidChange()
         
-        // 2
         var insets = view.safeAreaInsets
         insets.top = 0
         homeColletionView.contentInset = insets
@@ -119,12 +116,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        if let cell = collectionView.cellForItem(at: indexPath) as? ShoeCollectionViewCell {
-//            let attributes = collectionView.layoutAttributesForItem(at: indexPath)
-//            let cellRect = attributes?.frame
-//            let cellFrameInSuperview = collectionView.convert(cellRect ?? CGRect.zero, to: collectionView.superview)
-//
-//        }
+
         let attributes = collectionView.layoutAttributesForItem(at: indexPath)
         let cellRect = attributes?.frame
         let cellFrameInSuperview = collectionView.convert(cellRect ?? CGRect.zero, to: collectionView.superview)
@@ -135,19 +127,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         print("image Frame: x:\(imageFrameInSuperView.minX) y:\(imageFrameInSuperView.minY), width:\(imageFrameInSuperView.width), height:\(imageFrameInSuperView.height)")
         
         
-        self.testViewController.imageStartFrame = imageFrameInSuperView
-        self.testViewController.modalPresentationStyle = .overCurrentContext
-        self.present(self.testViewController, animated: false)
-        
-        //self.shoeDetailsViewController.modalPresentationStyle = .overCurrentContext
-        //self.present(self.shoeDetailsViewController, animated: false)
-        // animate and segue
+        self.shoeDetailsViewController.imageStartFrame = imageFrameInSuperView
+        self.shoeDetailsViewController.modalPresentationStyle = .overCurrentContext
+        self.present(self.shoeDetailsViewController, animated: true)
     }
-
-    func segueToDetails() {
-        self.shoeDetailsViewController.modalPresentationStyle = .fullScreen
-        self.present(self.shoeDetailsViewController, animated: false)
-    }
+    
 
 }
 

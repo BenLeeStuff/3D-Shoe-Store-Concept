@@ -10,8 +10,6 @@ import UIKit
 class TestViewController: UIViewController {
     
     let imageFinalY: CGFloat = 136
-    
-    public var imageStartY: CGFloat?
     public var imageStartFrame: CGRect?
     
     let backgroundView: UIView = {
